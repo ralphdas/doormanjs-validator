@@ -1,0 +1,34 @@
+{
+  "name": "doorman-js",
+  "version": "0.0.1",
+  "description": "Simple object validator to keep those non-compliant bastards out.",
+  "main": "/dist/cjs/bundle.cjs.js",
+  "module": "/dist/esm/bundle.esm.js",
+  "browser": "/dist/iife/bundle.iife.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rollup -c"
+  },
+  "keywords": [
+    "object-validation",
+    "validator"
+  ],
+  "author": "Ralph Das <ralph.das@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "rollup": "^2.40.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "ts-jest": "^26.5.2",
+    "tslib": "^2.1.0",
+    "typescript": "^4.2.2"
+  },
+  "dependencies": {
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
