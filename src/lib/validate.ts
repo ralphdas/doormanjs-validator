@@ -51,7 +51,9 @@ function validateTargetProperty(schemaStr: string, targetValue: any): boolean {
  */
 export function checkForBooleanValue(targetValue: any): boolean {
   if (typeof targetValue !== 'boolean') {
-    throw new Error(`The value: ${targetValue} is not a Boolean`)
+    throw new Error(
+      `The value: ${JSON.stringify(targetValue)} is not a Boolean`
+    )
   }
   return true
 }
@@ -64,7 +66,7 @@ export function checkForBooleanValue(targetValue: any): boolean {
  */
 export function checkForStringValue(targetValue: any): boolean {
   if (typeof targetValue !== 'string') {
-    throw new Error(`The value: ${targetValue} is not a String`)
+    throw new Error(`The value: ${JSON.stringify(targetValue)} is not a String`)
   }
   return true
 }
@@ -77,7 +79,7 @@ export function checkForStringValue(targetValue: any): boolean {
  */
 export function checkForNumberValue(targetValue: any): boolean {
   if (typeof targetValue !== 'number') {
-    throw new Error(`The value: ${targetValue} is not a Number`)
+    throw new Error(`The value: ${JSON.stringify(targetValue)} is not a Number`)
   }
   return true
 }
@@ -94,7 +96,7 @@ export function checkForObjectValue(targetValue: any): boolean {
     Array.isArray(targetValue) ||
     targetValue instanceof Date
   ) {
-    throw new Error(`The value: ${targetValue} is not a Object`)
+    throw new Error(`The value: ${JSON.stringify(targetValue)} is not a Object`)
   }
   return true
 }
@@ -107,7 +109,7 @@ export function checkForObjectValue(targetValue: any): boolean {
  */
 export function checkForDateValue(targetValue: any): boolean {
   if (targetValue instanceof Date === false) {
-    throw new Error(`The value: ${targetValue} is not a Date`)
+    throw new Error(`The value: ${JSON.stringify(targetValue)} is not a Date`)
   }
   return true
 }
@@ -120,7 +122,7 @@ export function checkForDateValue(targetValue: any): boolean {
  */
 export function checkForArrayValue(targetValue: any): boolean {
   if (!Array.isArray(targetValue)) {
-    throw new Error(`The value: ${targetValue} is not a Array`)
+    throw new Error(`The value: ${JSON.stringify(targetValue)} is not a Array`)
   }
   return true
 }

@@ -58,8 +58,8 @@ export function schemaIsValid(schema: Schema): boolean {
       isCompliant = ALLOWED_KEYS.includes(schemaKey)
       if (!isCompliant) {
         throw new Error(
-          `The parameter of "${schemaKey}" is not recognized as a valid key, 
-             Please use 'string', 'array', 'object', 'number' or 'boolean'`
+          `The parameter of '${schemaKey}' is not recognized as a valid key,
+          Please use 'string', 'array', 'object', 'number' or 'boolean'`
         )
       }
     }

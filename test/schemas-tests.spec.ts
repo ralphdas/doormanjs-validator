@@ -47,7 +47,7 @@ describe('Testing Cars Schema', () => {
     }
     expect(() => {
       validate({ target, schema: CarSchema })
-    }).toThrowError()
+    }).toThrowError('The value: "100000" is not a Number')
   })
 })
 
@@ -63,7 +63,7 @@ describe('Testing the People Schema', () => {
 
     expect(validate({ target, schema: PersonSchema })).toBeTruthy()
   })
-  it('Should throw an error s', () => {
+  it('Should throw an error', () => {
     const target = {
       name: 'James',
       age: 25,
@@ -71,6 +71,8 @@ describe('Testing the People Schema', () => {
     }
     expect(() => {
       validate({ target, schema: PersonSchema })
-    }).toThrowError()
+    }).toThrowError(
+      'You have unaccounted missing values [siblings,metaData] on the target object'
+    )
   })
 })

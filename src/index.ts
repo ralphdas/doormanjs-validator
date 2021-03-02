@@ -13,8 +13,13 @@ import { validateTargetObject } from './lib/validate'
  * @param  {} target
  * @param  {} schema
  * @param  {Parameters} options={}}
+ * @returns boolean
  */
-export function validate({ target, schema, options = {} }: Parameters) {
+export function validate({
+  target,
+  schema,
+  options = {},
+}: Parameters): boolean {
   const { extraValuesAllowed, missingValuesAllowed }: Options = Object.assign(
     DEFAULT_OPTIONS,
     options
@@ -22,7 +27,7 @@ export function validate({ target, schema, options = {} }: Parameters) {
   if (!schemaIsValid(schema)) {
     return false
   }
-  if (!targetIsValid(schema)) {
+  if (!targetIsValid(target)) {
     return false
   }
   if (!extraValuesAllowed && !targetNotMissingValues(target, schema)) {
