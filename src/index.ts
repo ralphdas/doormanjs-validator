@@ -3,6 +3,7 @@ import {
   schemaIsValid,
   targetNotMissingValues,
   targetNotHavingExtraValues,
+  targetIsValid,
 } from './lib/precheck'
 import { Parameters, Options } from './lib/types'
 import { validateTargetObject } from './lib/validate'
@@ -19,6 +20,9 @@ export function validate({ target, schema, options = {} }: Parameters) {
     options
   )
   if (!schemaIsValid(schema)) {
+    return false
+  }
+  if (!targetIsValid(schema)) {
     return false
   }
   if (!extraValuesAllowed && !targetNotMissingValues(target, schema)) {

@@ -1,5 +1,6 @@
 import { ALLOWED_KEYS } from './config'
 import { Target, Schema } from './types'
+import { checkForObjectValue } from './validate'
 
 /**
  * Optional function to check for Missing Schema Properties in Target
@@ -48,8 +49,8 @@ export function targetNotHavingExtraValues(
  * @param  {Schema} schema
  */
 export function schemaIsValid(schema: Schema): boolean {
-  if (typeof schema !== 'object') {
-    throw new Error('Supplied Schema Object is not a valid Object')
+  if (!checkForObjectValue(schema)) {
+    return false
   }
   const schemaKeys = Object.values(schema)
   return schemaKeys.reduce((isCompliant, schemaKey) => {
@@ -64,4 +65,15 @@ export function schemaIsValid(schema: Schema): boolean {
     }
     return isCompliant
   }, <boolean>true)
+}
+/**
+ * Basic sanity on the target value
+ * @param  {Target} target
+ * @returns boolean
+ */
+export function targetIsValid(target: Target): boolean {
+  if (!checkForObjectValue(target)) {
+    return false
+  }
+  return true
 }

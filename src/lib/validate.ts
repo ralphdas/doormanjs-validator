@@ -49,7 +49,7 @@ function validateTargetProperty(schemaStr: string, targetValue: any): boolean {
  * @param  {any} targetValue
  * @returns boolean
  */
-function checkForBooleanValue(targetValue: any): boolean {
+export function checkForBooleanValue(targetValue: any): boolean {
   if (typeof targetValue !== 'boolean') {
     throw new Error(`The value: ${targetValue} is not a Boolean`)
   }
@@ -62,7 +62,7 @@ function checkForBooleanValue(targetValue: any): boolean {
  * @param  {any} targetValue
  * @returns boolean
  */
-function checkForStringValue(targetValue: any): boolean {
+export function checkForStringValue(targetValue: any): boolean {
   if (typeof targetValue !== 'string') {
     throw new Error(`The value: ${targetValue} is not a String`)
   }
@@ -75,7 +75,7 @@ function checkForStringValue(targetValue: any): boolean {
  * @param  {any} targetValue
  * @returns boolean
  */
-function checkForNumberValue(targetValue: any): boolean {
+export function checkForNumberValue(targetValue: any): boolean {
   if (typeof targetValue !== 'number') {
     throw new Error(`The value: ${targetValue} is not a Number`)
   }
@@ -88,7 +88,7 @@ function checkForNumberValue(targetValue: any): boolean {
  * @param  {any} targetValue
  * @returns boolean
  */
-function checkForObjectValue(targetValue: any): boolean {
+export function checkForObjectValue(targetValue: any): boolean {
   if (
     typeof targetValue !== 'object' ||
     Array.isArray(targetValue) ||
@@ -105,7 +105,7 @@ function checkForObjectValue(targetValue: any): boolean {
  * @param  {any} targetValue
  * @returns boolean
  */
-function checkForDateValue(targetValue: any): boolean {
+export function checkForDateValue(targetValue: any): boolean {
   if (targetValue instanceof Date === false) {
     throw new Error(`The value: ${targetValue} is not a Date`)
   }
@@ -118,7 +118,7 @@ function checkForDateValue(targetValue: any): boolean {
  * @param  {any} targetValue
  * @returns boolean
  */
-function checkForArrayValue(targetValue: any): boolean {
+export function checkForArrayValue(targetValue: any): boolean {
   if (!Array.isArray(targetValue)) {
     throw new Error(`The value: ${targetValue} is not a Array`)
   }
