@@ -12,8 +12,6 @@ DoormanJS is a Javascript library for dealing with object validations written in
 
 Currently it does not support sub-objects or array values.
 
-The JS code can be found in mimified condition in `dist` folder in ESM, CommonJS and IIFE formats. Packaging is done through RollupJS.
-
 ## Installation
 
 Use the package manager NPM or Yarn
@@ -49,7 +47,12 @@ const schema = {
   drinks: 'object',
 }
 
-validate({ target, schema }) // returns true
+const options = {
+  extraValuesAllowed: false, // by default false
+  missingValuesAllowed: false, // by default false
+}
+
+validate({ target, schema, options }) // returns true
 ```
 
 ## Unit testing
@@ -62,6 +65,26 @@ yarn run test
 
 ```bash
 npm run test
+```
+
+## Forking
+
+After forking the project simply run
+
+```js
+yarn
+// or
+npm i
+```
+
+to install all dependencies. In the `src` directory you will find all the Typescript source files.
+
+## Build
+
+The JS code can be found in mimified condition in `dist` folder in ESM, CommonJS and IIFE formats. Packaging is done through RollupJS.
+
+```bash
+yarn run build
 ```
 
 ## Contributing

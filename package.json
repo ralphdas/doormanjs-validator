@@ -2,9 +2,9 @@
   "name": "doormanjs-validator",
   "version": "0.0.1",
   "description": "Simple object validator to keep those non-compliant bastards out.",
-  "main": "/dist/cjs/bundle.cjs.js",
-  "module": "/dist/esm/bundle.esm.js",
-  "browser": "/dist/iife/bundle.iife.js",
+  "main": "./dist/cjs/bundle.cjs.js",
+  "module": "./dist/esm/bundle.esm.js",
+  "browser": "./dist/iife/bundle.iife.js",
   "repository": {
     "url": "https://github.com/ralphdas/Doorman-JS"
   },
