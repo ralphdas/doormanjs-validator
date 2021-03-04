@@ -2,6 +2,8 @@
 
 # DoormanJS Validator
 
+[![Actions Status](https://github.com/ralphdas/doormanjs-validator/actions/workflows/run-unit-tests.yml/badge.svg)](https://github.com/ralphdas/doormanjs-validator/actions/) [![License][license-image]][license-url] [![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges/)
+
 DoormanJS is a Javascript library for dealing with object validations written in Typescript using a simple schema object. It keeps those #$% Bastards out. It currently only supports the following types:
 
 - Array
@@ -96,3 +98,6 @@ Please make sure to update tests as appropriate.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+[license-image]: https://img.shields.io/npm/l/make-coverage-badge.svg
+[license-url]: https://opensource.org/licenses/MIT
