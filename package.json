@@ -1,12 +1,12 @@
 {
   "name": "doormanjs-validator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple object validator to keep those non-compliant bastards out.",
   "main": "./dist/cjs/bundle.cjs.js",
   "module": "./dist/esm/bundle.esm.js",
   "browser": "./dist/iife/bundle.iife.js",
   "repository": {
-    "url": "https://github.com/ralphdas/Doorman-JS"
+    "url": "https://github.com/ralphdas/doormanjs-validator"
   },
   "scripts": {
     "test": "jest",
@@ -26,8 +26,8 @@
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-sourcemaps": "^0.6.3",
-    "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
     "ts-jest": "^26.5.2",
     "tslib": "^2.1.0",
     "typescript": "^4.2.2"
