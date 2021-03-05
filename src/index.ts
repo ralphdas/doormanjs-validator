@@ -6,6 +6,7 @@ import {
 } from './lib/precheck';
 import { Parameters, Options, Target, Schema } from './lib/types';
 import { checkForObjectValue, validateTargetObject } from './lib/validate';
+import { version as VERSION } from '../package.json';
 
 /**
  * Function that validates using a target Object and and Schema Object
@@ -46,3 +47,5 @@ export function validate(parameters: Parameters): boolean {
   }
   return validateTargetObject(target, schema);
 }
+
+export const version: String = VERSION;

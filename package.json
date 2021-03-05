@@ -19,6 +19,7 @@
   "author": "Ralph Das <ralph.das@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "@types/jest": "^26.0.20",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",

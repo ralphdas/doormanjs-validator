@@ -6,6 +6,7 @@
     "noEmitOnError": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "ES5",
+    "resolveJsonModule": true,
     "esModuleInterop": true
   },
   "exclude": ["node_modules"]
