@@ -54,7 +54,16 @@ const options = {
   missingValuesAllowed: false, // by default false
 }
 
-validate({ target, schema, options }) // returns true
+try {
+  validate({ target, schema, options }) // returns true
+} catch (error) {
+  /* 
+    It will throw a Error on Invalid Schema or Target.
+    Or on failed validation error.message gives a hint.
+  */
+  console.error(error.message)
+  // Example: The value: 'Arie' is not an Object
+}
 ```
 
 ## Unit testing
