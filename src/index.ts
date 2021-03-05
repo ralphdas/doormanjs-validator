@@ -20,6 +20,9 @@ export function validate({
   schema,
   options = {},
 }: Parameters): boolean {
+  if (!targetIsValid(options)) {
+    return false
+  }
   const { extraValuesAllowed, missingValuesAllowed }: Options = Object.assign(
     DEFAULT_OPTIONS,
     options
