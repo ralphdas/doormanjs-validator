@@ -6,10 +6,10 @@ export const ALLOWED_KEYS = [
   'number',
   'boolean',
   'date',
-]
+];
 
 // The default options
 export const DEFAULT_OPTIONS = {
   missingValuesAllowed: false,
   extraValuesAllowed: false,
-}
+};

@@ -1,6 +1,6 @@
-import { ALLOWED_KEYS } from './config'
-import { Target, Schema } from './types'
-import { checkForObjectValue } from './validate'
+import { ALLOWED_KEYS } from './config';
+import { Target, Schema } from './types';
+import { checkForObjectValue } from './validate';
 
 /**
  * Optional function to check for Missing Schema Properties in Target
@@ -9,16 +9,16 @@ import { checkForObjectValue } from './validate'
  * @param  {Schema} schema
  */
 export function targetNotMissingValues(target: Target, schema: Schema) {
-  const targetKeys = Object.keys(target)
-  const schemaKeys = Object.keys(schema)
+  const targetKeys = Object.keys(target);
+  const schemaKeys = Object.keys(schema);
 
-  const restKeys = schemaKeys.filter((key) => !targetKeys.includes(key))
+  const restKeys = schemaKeys.filter((key) => !targetKeys.includes(key));
   if (restKeys.length) {
     throw new Error(
-      `You have unaccounted missing values [${restKeys.toString()}] on the target object`
-    )
+      `Target Error! You have unaccounted missing values [${restKeys.toString()}] on the target object`
+    );
   }
-  return true
+  return true;
 }
 
 /**
@@ -31,15 +31,15 @@ export function targetNotHavingExtraValues(
   target: Target,
   schema: Schema
 ): boolean {
-  const targetKeys = Object.keys(target)
-  const schemaKeys = Object.keys(schema)
-  const restKeys = targetKeys.filter((key) => !schemaKeys.includes(key))
+  const targetKeys = Object.keys(target);
+  const schemaKeys = Object.keys(schema);
+  const restKeys = targetKeys.filter((key) => !schemaKeys.includes(key));
   if (restKeys.length) {
     throw new Error(
-      `You have unaccounted extra values[${restKeys.toString()}] on the target object`
-    )
+      `Target Error! You have unaccounted extra values[${restKeys.toString()}] on the target object`
+    );
   }
-  return true
+  return true;
 }
 
 /**
@@ -49,20 +49,20 @@ export function targetNotHavingExtraValues(
  * @param  {Schema} schema
  */
 export function schemaIsValid(schema: Schema): boolean {
-  if (!checkForObjectValue(schema)) {
-    return false
+  if (!checkForObjectValue(schema).isValid) {
+    return false;
   }
-  const schemaKeys = Object.values(schema)
+  const schemaKeys = Object.values(schema);
   return schemaKeys.reduce((isCompliant, schemaKey) => {
     if (isCompliant) {
-      isCompliant = ALLOWED_KEYS.includes(schemaKey)
+      isCompliant = ALLOWED_KEYS.includes(schemaKey);
       if (!isCompliant) {
         throw new Error(
-          `The parameter of '${schemaKey}' is not recognized as a valid key,
+          `Schema Error! The parameter of '${schemaKey}' is not recognized as a valid key,
           Please use 'string', 'array', 'object', 'number' or 'boolean'`
-        )
+        );
       }
     }
-    return isCompliant
-  }, <boolean>true)
+    return isCompliant;
+  }, <boolean>true);
 }

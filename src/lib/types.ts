@@ -1,15 +1,20 @@
 export interface Target {
-  [index: string]: any
+  [index: string]: any;
 }
 export interface Schema {
-  [index: string]: string
+  [index: string]: string;
 }
 export interface Parameters {
-  target: Target
-  schema: Schema
-  options?: Options
+  target: Target;
+  schema: Schema;
+  options?: Options;
 }
 export interface Options {
-  missingValuesAllowed?: boolean
-  extraValuesAllowed?: boolean
+  missingValuesAllowed?: boolean;
+  extraValuesAllowed?: boolean;
+}
+export interface ValidationResult {
+  desiredType: String;
+  encounteredJSONValue: String;
+  isValid: Boolean;
 }

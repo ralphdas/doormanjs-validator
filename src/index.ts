@@ -1,11 +1,11 @@
-import { DEFAULT_OPTIONS } from './lib/config'
+import { DEFAULT_OPTIONS } from './lib/config';
 import {
   schemaIsValid,
   targetNotMissingValues,
   targetNotHavingExtraValues,
-} from './lib/precheck'
-import { Parameters, Options } from './lib/types'
-import { checkForObjectValue, validateTargetObject } from './lib/validate'
+} from './lib/precheck';
+import { Parameters, Options, Target, Schema } from './lib/types';
+import { checkForObjectValue, validateTargetObject } from './lib/validate';
 
 /**
  * Function that validates using a target Object and and Schema Object
@@ -14,29 +14,35 @@ import { checkForObjectValue, validateTargetObject } from './lib/validate'
  * @param  {Parameters} options={}}
  * @returns boolean
  */
-export function validate({
-  target,
-  schema,
-  options = {},
-}: Parameters): boolean {
-  if (!checkForObjectValue(options)) {
-    return false
+export function validate(parameters: Parameters): boolean {
+  let target: Target, schema: Schema, options: Options;
+  try {
+    ({ target, schema, options = {} } = parameters);
+  } catch (err) {
+    throw new Error(
+      'Validation Error! Input should be validate({target: {}, schema: {}, options: {})'
+    );
   }
+
+  if (!checkForObjectValue(options).isValid) {
+    throw new Error('Options Error! Invalid Options Object');
+  }
+
   const { extraValuesAllowed, missingValuesAllowed }: Options = Object.assign(
     DEFAULT_OPTIONS,
     options
-  )
+  );
   if (!schemaIsValid(schema)) {
-    return false
+    throw new Error('Schema Error! Invalid Schema Object');
   }
-  if (!checkForObjectValue(target)) {
-    return false
+  if (!checkForObjectValue(target).isValid) {
+    throw new Error('Target Error! Invalid Target Object');
   }
   if (!extraValuesAllowed && !targetNotMissingValues(target, schema)) {
-    return false
+    return false;
   }
   if (!missingValuesAllowed && !targetNotHavingExtraValues(target, schema)) {
-    return false
+    return false;
   }
-  return validateTargetObject(target, schema)
+  return validateTargetObject(target, schema);
 }
