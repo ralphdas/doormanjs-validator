@@ -47,7 +47,7 @@ describe('Testing Cars Schema', () => {
     }
     expect(() => {
       validate({ target, schema: CarSchema })
-    }).toThrowError('The value: "100000" is not a Number')
+    }).toThrowError('The value: "100000" is not an Number')
   })
 })
 

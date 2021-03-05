@@ -66,14 +66,3 @@ export function schemaIsValid(schema: Schema): boolean {
     return isCompliant
   }, <boolean>true)
 }
-/**
- * Basic sanity on the target value
- * @param  {Target} target
- * @returns boolean
- */
-export function targetIsValid(target: Target): boolean {
-  if (!checkForObjectValue(target)) {
-    return false
-  }
-  return true
-}

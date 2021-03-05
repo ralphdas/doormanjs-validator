@@ -12,14 +12,14 @@ describe('Testing schema sanity', () => {
     }
     expect(() => {
       validate({ target, schema: ([] as any) as Schema })
-    }).toThrowError('The value: [] is not a Object')
+    }).toThrowError('The value: [] is not an Object')
   })
 
   it('Should give Error on broken target', () => {
     const target = ([] as any) as Target
     expect(() => {
       validate({ target, schema: { name: 'string' } })
-    }).toThrowError('The value: [] is not a Object')
+    }).toThrowError('The value: [] is not an Object')
   })
 
   it('Should give Error on broken schema', () => {

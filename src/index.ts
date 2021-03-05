@@ -3,10 +3,9 @@ import {
   schemaIsValid,
   targetNotMissingValues,
   targetNotHavingExtraValues,
-  targetIsValid,
 } from './lib/precheck'
 import { Parameters, Options } from './lib/types'
-import { validateTargetObject } from './lib/validate'
+import { checkForObjectValue, validateTargetObject } from './lib/validate'
 
 /**
  * Function that validates using a target Object and and Schema Object
@@ -20,7 +19,7 @@ export function validate({
   schema,
   options = {},
 }: Parameters): boolean {
-  if (!targetIsValid(options)) {
+  if (!checkForObjectValue(options)) {
     return false
   }
   const { extraValuesAllowed, missingValuesAllowed }: Options = Object.assign(
@@ -30,7 +29,7 @@ export function validate({
   if (!schemaIsValid(schema)) {
     return false
   }
-  if (!targetIsValid(target)) {
+  if (!checkForObjectValue(target)) {
     return false
   }
   if (!extraValuesAllowed && !targetNotMissingValues(target, schema)) {
