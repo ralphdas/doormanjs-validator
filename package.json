@@ -1,6 +1,6 @@
 {
   "name": "doormanjs-validator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple object validator to keep those non-compliant bastards out.",
   "main": "./dist/cjs/bundle.cjs.js",
   "module": "./dist/esm/bundle.esm.js",
