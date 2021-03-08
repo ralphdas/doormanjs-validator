@@ -4,6 +4,12 @@
 
 [![Actions Status](https://github.com/ralphdas/doormanjs-validator/actions/workflows/run-unit-tests.yml/badge.svg)](https://github.com/ralphdas/doormanjs-validator/actions/) [![License][license-image]][license-url] [![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges/)
 
+![Coverage badge gree][coverage-badge-green] ![Coverage badge gree][coverage-badge-yellow] ![Coverage badge gree][coverage-badge-red]
+
+[coverage-badge-green]: https://raw.githubusercontent.com/ralphdas/doormanjs-validator/main/coverage/badge-branches.svg
+[coverage-badge-yellow]: https://raw.githubusercontent.com/ralphdas/doormanjs-validator/main/coverage/badge-functions.svg
+[coverage-badge-red]: https://raw.githubusercontent.com/ralphdas/doormanjs-validator/main/coverage/badge-lines.svg
+
 DoormanJS is a Javascript library for dealing with object validations written in Typescript using a simple schema object. It keeps those #$% Bastards out. It currently only supports the following types:
 
 - Array
@@ -30,10 +36,10 @@ yarn add doormanjs-validator
 
 ```javascript
 // es5
-const { validate } = require('doormanjs-validator')
+const { validate } = require('doormanjs-validator');
 
 // ESM Module
-import { validate } from 'doormanjs-validator'
+import { validate } from 'doormanjs-validator';
 
 const target = {
   name: 'Jimmys drinks',
@@ -41,27 +47,27 @@ const target = {
   drinks: {
     beer: ['Straffe Hendrik', 'Rochefort', 'St Bernard'],
   },
-}
+};
 
 const schema = {
   name: 'string',
   address: 'string',
   drinks: 'object',
-}
+};
 
 const options = {
   extraValuesAllowed: false, // by default false
   missingValuesAllowed: false, // by default false
-}
+};
 
 try {
-  validate({ target, schema, options }) // returns true
+  validate({ target, schema, options }); // returns true
 } catch (error) {
   /* 
     It will throw a Error on Invalid Schema or Target.
     Or on failed validation error.message gives a hint.
   */
-  console.error(error.message)
+  console.error(error.message);
   // Example: The value: 'Arie' is not an Object
 }
 ```
