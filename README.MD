@@ -2,7 +2,7 @@
 
 # DoormanJS Validator
 
-[![Actions Status](https://github.com/ralphdas/doormanjs-validator/actions/workflows/run-unit-tests.yml/badge.svg)](https://github.com/ralphdas/doormanjs-validator/actions/) [![License][license-image]][license-url] [![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges/)
+[![Actions Status](https://github.com/ralphdas/doormanjs-validator/actions/workflows/build.yml/badge.svg)](https://github.com/ralphdas/doormanjs-validator/actions/)[![Actions Status](https://github.com/ralphdas/doormanjs-validator/actions/workflows/test.yml/badge.svg)](https://github.com/ralphdas/doormanjs-validator/actions/) [![License][license-image]][license-url] [![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges/)
 
 ![Coverage badge gree][coverage-badge-green] ![Coverage badge gree][coverage-badge-yellow] ![Coverage badge gree][coverage-badge-red]
 
