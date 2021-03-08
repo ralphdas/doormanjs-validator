@@ -21,4 +21,4 @@ jobs:
           node-version: 14.x
       - name: NPM or Yarn install with caching
         uses: bahmutov/npm-install@v1.6.0
-      - run: npm run test
+      - run: npm run test:badges
