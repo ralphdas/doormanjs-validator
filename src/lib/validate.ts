@@ -26,9 +26,7 @@ export function validateTargetObject(target: Target, schema: Schema): boolean {
     } else {
       let validationResult = <ValidationResult>result;
       !validationResult.isValid && throwValidationError(key, validationResult);
-      if (resultBool) {
-        resultBool = validationResult.isValid;
-      }
+      resultBool && (resultBool = validationResult.isValid);
     }
   });
   return resultBool;

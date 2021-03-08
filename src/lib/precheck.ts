@@ -54,15 +54,15 @@ export function schemaIsValid(schema: Schema): boolean {
   }
   const schemaKeys = Object.values(schema);
   return schemaKeys.reduce((isCompliant, schemaKey) => {
-    if (isCompliant) {
-      isCompliant = ALLOWED_KEYS.includes(schemaKey);
-      if (!isCompliant) {
-        throw new Error(
-          `Schema Error! The parameter of '${schemaKey}' is not recognized as a valid key,
+    isCompliant = ALLOWED_KEYS.includes(schemaKey);
+
+    if (!isCompliant) {
+      throw new Error(
+        `Schema Error! The parameter of '${schemaKey}' is not recognized as a valid key,
           Please use 'string', 'array', 'object', 'number' or 'boolean'`
-        );
-      }
+      );
+    } else {
+      return true;
     }
-    return isCompliant;
   }, <boolean>true);
 }
