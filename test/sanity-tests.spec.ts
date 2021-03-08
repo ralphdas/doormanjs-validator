@@ -1,5 +1,6 @@
 import { validate } from '../src/index';
 import { Schema, Target } from '../src/lib/types';
+import { validateTargetObject } from '../src/lib/validate';
 
 describe('Testing schema sanity', () => {
   it('Should give Error on broken schema', () => {
@@ -82,6 +83,48 @@ describe('Testing schema sanity', () => {
         },
       });
     }).toBeTruthy();
+  });
+
+  it('Should fail on mallformed option object', () => {
+    const target = {
+      naam: 'arie',
+    };
+    const schema = {
+      naam: 'string',
+      leeftijd: 'number',
+    };
+    expect(() => {
+      validate({
+        target,
+        schema,
+        options: <any>[],
+      });
+    }).toThrowError('Options Error! Invalid Options Object');
+  });
+});
+
+describe('Testing the function of Property Validation', () => {
+  it('should give throw error on non-overlapping sets', () => {
+    const target = {
+      test: 'arie',
+    };
+    const schema = {
+      arie: 'foobar',
+    };
+
+    expect(() => validateTargetObject(target, schema)).toThrowError(
+      'Validation Error! Schema and target keys do not overlap completly'
+    );
+  });
+  it('should give false invalid schema types', () => {
+    const target = {
+      test: 'arie',
+    };
+    const schema = {
+      test: 'foobar',
+    };
+
+    expect(validateTargetObject(target, schema)).toBeFalsy();
   });
 });
 

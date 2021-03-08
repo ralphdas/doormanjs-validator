@@ -15,6 +15,7 @@ export const PersonSchema = {
   name: 'string',
   age: 'number',
   siblings: 'array',
+  birthDate: 'date',
   metaData: 'object',
   active: 'boolean',
 };

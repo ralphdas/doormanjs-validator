@@ -9,16 +9,29 @@ import { Target, Schema, ValidationResult } from './types';
  */
 export function validateTargetObject(target: Target, schema: Schema): boolean {
   const targetKeys = Object.keys(target);
+  let resultBool: boolean = true;
   targetKeys.forEach((key) => {
     const targetValue = target[key];
+
+    if (!schema[key]) {
+      throw new Error(
+        'Validation Error! Schema and target keys do not overlap completly'
+      );
+    }
     const desiredSchemaTypeStr = schema[key];
-    const result = <ValidationResult>(
-      validateTargetProperty(desiredSchemaTypeStr, targetValue)
-    );
-    !result.isValid && throwValidationError(key, result);
-    return result.isValid;
+    const result = validateTargetProperty(desiredSchemaTypeStr, targetValue);
+    if (result === false) {
+      // should never occur. Invalid schema fallback
+      resultBool = false;
+    } else {
+      let validationResult = <ValidationResult>result;
+      !validationResult.isValid && throwValidationError(key, validationResult);
+      if (resultBool) {
+        resultBool = validationResult.isValid;
+      }
+    }
   });
-  return true;
+  return resultBool;
 }
 
 /**
@@ -31,10 +44,10 @@ export function validateTargetObject(target: Target, schema: Schema): boolean {
 function validateTargetProperty(
   desiredSchemaTypeStr: string,
   targetValue: any
-): ValidationResult | Boolean {
+): ValidationResult | boolean {
   switch (desiredSchemaTypeStr) {
     case 'boolean': {
-      return checkForBooleanValue(targetValue);
+      return checkForbooleanValue(targetValue);
     }
     case 'string': {
       return checkForStringValue(targetValue);
@@ -66,12 +79,12 @@ function throwValidationError(key: String, result: ValidationResult): void {
 }
 
 /**
- * Check property for Boolean value
+ * Check property for boolean value
  * Throws Error on failure
  * @param  {any} targetValue
  * @returns ValidationResult
  */
-export function checkForBooleanValue(targetValue: any): ValidationResult {
+export function checkForbooleanValue(targetValue: any): ValidationResult {
   return <ValidationResult>{
     desiredType: 'boolean',
     encounteredJSONValue: JSON.stringify(targetValue),

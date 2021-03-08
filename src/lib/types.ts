@@ -16,5 +16,5 @@ export interface Options {
 export interface ValidationResult {
   desiredType: String;
   encounteredJSONValue: String;
-  isValid: Boolean;
+  isValid: boolean;
 }

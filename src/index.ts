@@ -39,12 +39,10 @@ export function validate(parameters: Parameters): boolean {
   if (!checkForObjectValue(target).isValid) {
     throw new Error('Target Error! Invalid Target Object');
   }
-  if (!extraValuesAllowed && !targetNotMissingValues(target, schema)) {
-    return false;
-  }
-  if (!missingValuesAllowed && !targetNotHavingExtraValues(target, schema)) {
-    return false;
-  }
+
+  !missingValuesAllowed && !targetNotMissingValues(target, schema);
+  !extraValuesAllowed && !targetNotHavingExtraValues(target, schema);
+
   return validateTargetObject(target, schema);
 }
 

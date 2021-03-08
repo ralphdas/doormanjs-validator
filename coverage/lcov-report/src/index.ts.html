@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.96% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/23</span>
+                <span class='fraction'>21/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>12/16</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>18/21</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
@@ -105,10 +105,7 @@
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -127,16 +124,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
@@ -150,10 +147,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,15 +173,15 @@ import { version as VERSION } from '../package.json';
 export function validate(parameters: Parameters): boolean {
   let target: Target, schema: Schema, options: Options;
   try {
-    ({ target, schema, options = {}<span class="branch-1 cbranch-no" title="branch not covered" > } = p</span>arameters);
+    ({ target, schema, options = {} } = parameters);
   } catch (err) {
     throw new Error(
       'Validation Error! Input should be validate({target: {}, schema: {}, options: {})'
     );
   }
 &nbsp;
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (!checkForObjectValue(options).isValid) {
-<span class="cstat-no" title="statement not covered" >    throw new Error('Options Error! Invalid Options Object');</span>
+  if (!checkForObjectValue(options).isValid) {
+    throw new Error('Options Error! Invalid Options Object');
   }
 &nbsp;
   const { extraValuesAllowed, missingValuesAllowed }: Options = Object.assign(
@@ -200,12 +194,9 @@ export function validate(parameters: Parameters): boolean {
   if (!checkForObjectValue(target).isValid) {
     throw new Error('Target Error! Invalid Target Object');
   }
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (!extraValuesAllowed &amp;&amp; !targetNotMissingValues(target, schema)) {
-<span class="cstat-no" title="statement not covered" >    return false;</span>
-  }
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (!missingValuesAllowed &amp;&amp; !targetNotHavingExtraValues(target, schema)) {
-<span class="cstat-no" title="statement not covered" >    return false;</span>
-  }
+  !extraValuesAllowed &amp;&amp; !targetNotMissingValues(target, schema);
+  !missingValuesAllowed &amp;&amp; !targetNotHavingExtraValues(target, schema);
+&nbsp;
   return validateTargetObject(target, schema);
 }
 &nbsp;
@@ -217,7 +208,7 @@ export const version: String = VERSION;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Mar 06 2021 14:56:41 GMT+0100 (Central European Standard Time)
+                at Mon Mar 08 2021 11:21:11 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

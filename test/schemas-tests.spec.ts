@@ -60,6 +60,7 @@ describe('Testing the People Schema', () => {
     const target = {
       name: 'James',
       age: 25,
+      birthDate: new Date('1985-1-11'),
       siblings: ['Johnnathan'],
       metaData: {},
       active: true,
@@ -67,9 +68,11 @@ describe('Testing the People Schema', () => {
 
     expect(validate({ target, schema: PersonSchema })).toBeTruthy();
   });
+
   it('Should throw an error', () => {
     const target = {
       name: 'James',
+      birthDate: new Date('1985-1-11'),
       age: 25,
       active: true,
     };
